@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+#eugene-dashboard-upload {}
+    #eugene-dashboard-upload form { overflow:hidden; }
+    #eugene-dashboard-upload label { width:21%; display:inline-block; text-align:right; margin:0 2% 0 0; }
+    #eugene-dashboard-upload input[type='text'] { width:76%; }
+    #eugene-dashboard-upload input[type='submit'] { float:right; }
+    #eugene-dashboard-upload p { margin:0; padding:1em 0; }
+    #eugene-dashboard-upload .drag-drop { margin-bottom:1em; }
+    #eugene-dashboard-upload .upload-flash-bypass { display:none; }
+    #eugene-dashboard-upload .drag-drop-inside { margin-top:40px; }
+        #eugene-dashboard-upload .drag-drop-inside p { padding:5px 0; }
+
+    #eugene-dashboard-edit label { display:block; }
+    #eugene-dashboard-image-url { width:80%; }
+
+    #eugene-dashboard table td { vertical-align:middle; }
+    #eugene-dashboard .image img { width:auto; height:auto; max-width:200px; max-height:200px; }
+
+.table>thead>tr>.info,
+.table>tbody>tr>.info,
+.table>tfoot>tr>.info,
+.table>thead>.info>td,
+.table>tbody>.info>td,
+.table>tfoot>.info>td,
+.table>thead>.info>th,
+.table>tbody>.info>th,
+.table>tfoot>.info>th {
+    background-color: #dbf0fe;
+}

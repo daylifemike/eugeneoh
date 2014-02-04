@@ -1,0 +1,370 @@
+/*
+Theme Name: Eugene Young
+Theme URI: http://www.eugeneyoung.com
+Author: Michael Kafka
+Author URI: http://makfak.com
+Description: The man can act.
+Version: 1.0
+*/
+
+/*
+@import url('css/normalize.css');
+*/
+
+body {
+    background:#f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+header {
+    display: block;
+    text-align: center;
+    margin: 2em 0 3em 0;
+}
+
+header h1 {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 5em;
+    margin: 0;
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+img {
+    width: 100%;
+}
+
+.item {
+    margin-bottom: 2.5%;
+}
+
+/*.main .item:nth-child(4n+1) {
+    clear: both;
+}*/
+
+.clear {
+    clear: both;
+}
+
+.item > div > a,
+.link a,
+.placeholder {
+    position: relative;
+    display: block;
+    padding-bottom: 55.8%;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+}
+
+.link a:link,
+.link a:visited,
+.link a:hover {
+    color: #333333;
+}
+
+
+.video img {
+    margin-top: -9.5%;
+}
+
+.null img {
+    margin-top: -20%;
+}
+
+.link > div {
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.6em 1em 0.4em;
+}
+
+.thumbnail {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+}
+
+.thumbnail .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2em 1.5em 0.8em;
+    background: rgba(0,0,0,0.5);
+    color: #eeeeee;
+    font-size: 11px;
+    text-transform: capitalize;
+    text-align: right;
+}
+
+
+#gui {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+}
+
+/* ================= */
+.reel-ribbon .reel .reel-badge { display:none; }
+.reel-ribbon .reel:before {
+  content: attr(data-caption);
+  position:absolute;
+  top:5px;
+  left:7px;
+  padding-right: 10px;
+  color: #ffffff;
+  height: 0px;
+  border: 15px solid #d80000;
+  border-right-color: transparent;
+  line-height:0px;
+  box-shadow:-0px 5px 5px -5px #000;
+  z-index:1;
+}
+.reel-ribbon .reel:after {
+  content: "";
+  position:absolute;
+  top: 35px;
+  left: 7px;
+  border: 4px solid #890c0c;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+
+/* ================= */
+.reel-curl .reel .reel-badge {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    background: none;
+    padding: 0;
+    color: #ffffff;
+    font-size: 13px;
+    background-image: -webkit-linear-gradient(225deg, #F0F0F0 0%, #F0F0F0 49%, #9B0000 50%, #D80000 100%);
+    background-image:    -moz-linear-gradient(225deg, #F0F0F0 0%, #F0F0F0 49%, #9B0000 50%, #D80000 100%);
+    background-image:     -ms-linear-gradient(225deg, #F0F0F0 0%, #F0F0F0 49%, #9B0000 50%, #D80000 100%);
+    background-image:      -o-linear-gradient(225deg, #F0F0F0 0%, #F0F0F0 49%, #9B0000 50%, #D80000 100%);
+    background-image:         linear-gradient(225deg, #F0F0F0 0%, #F0F0F0 49%, #9B0000 50%, #D80000 100%);
+    text-align: left;
+    -webkit-box-shadow: 0px 0px 6px rgba(0,0,0,0.6);
+    -moz-box-shadow:    0px 0px 6px rgba(0,0,0,0.6);
+    box-shadow:         0px 0px 6px rgba(0,0,0,0.6);
+}
+.reel-curl .reel .reel-badge p {
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
+    left: 2px;
+}
+
+/* ================= */
+/* http://dribbble.com/shots/350326-Corner-Ribbon-PSD */
+.reel-cover .reel .reel-badge {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    background: none;
+    padding: 0;
+}
+.reel-cover .reel .reel-badge p {
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    -webkit-transform: rotate(40deg);
+    -moz-transform:    rotate(40deg);
+    -ms-transform:     rotate(40deg);
+    -o-transform:      rotate(40deg);
+    position: relative;
+    padding: 25px 0 3px;
+    left: 24px;
+    top: -12px;
+    width: 120px;
+    background-color: #d80000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d80000), to(#c92f2f)); 
+    background-image: -webkit-linear-gradient(top, #d80000, #c92f2f); 
+    background-image:    -moz-linear-gradient(top, #d80000, #c92f2f); 
+    background-image:     -ms-linear-gradient(top, #d80000, #c92f2f); 
+    background-image:      -o-linear-gradient(top, #d80000, #c92f2f); 
+    -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+    box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+/* ================= */
+.reel-band .reel .reel-badge {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    background: none;
+    padding: 0;
+}
+.reel-band .reel .reel-badge p {
+    font-size: 15px;
+    color: #ffffff;
+    text-align: center;
+    -webkit-transform: rotate(40deg);
+    -moz-transform:    rotate(40deg);
+    -ms-transform:     rotate(40deg);
+    -o-transform:      rotate(40deg);
+    position: relative;
+    padding: 3px 0;
+    left: 15px;
+    top: 8px;
+    width: 120px;
+    background-color: #d80000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#d80000), to(#c92f2f));
+    background-image: -webkit-linear-gradient(top, #d80000, #c92f2f); 
+    background-image:    -moz-linear-gradient(top, #d80000, #c92f2f); 
+    background-image:     -ms-linear-gradient(top, #d80000, #c92f2f); 
+    background-image:      -o-linear-gradient(top, #d80000, #c92f2f); 
+    -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+    -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+    box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+
+
+.item img,
+.item .caption {
+    opacity: 1;
+
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+
+    -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
+    -o-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+
+    -webkit-transition: all 0.2s ease-out 0s;
+    -moz-transition: all 0.2s ease-out 0s;
+    -o-transition: all 0.2s ease-out 0s;
+    -ms-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* ================= */
+.caption-slide .item .caption {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+}
+.caption-slide .item a:hover .caption {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+/* ================= */
+.caption-fade .item .caption { opacity:0; }
+.caption-fade .item a:hover .caption { opacity:1; }
+
+/* ================= */
+.caption-partial-fade .item .caption { opacity:0.5; }
+.caption-partial-fade .item a:hover .caption { opacity:1; }
+
+/* ================= */
+.caption-zoom .item a:hover img {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/* ================= */
+.caption-zoomslide .item a:hover img {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.caption-zoomslide .item .caption {
+    -webkit-transform: translateY(100%);
+    -moz-transform: translateY(100%);
+    -o-transform: translateY(100%);
+    -ms-transform: translateY(100%);
+    transform: translateY(100%);
+}
+.caption-zoomslide .item a:hover .caption {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+
+
+
+
+
+/* Wordpress */
+.admin-banner {
+    /*
+    position: absolute;
+    top: 0;
+    left: 0;
+    */
+    background: #464646;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+}
+
+.admin-banner a:link,
+.admin-banner a:visited {
+    color: #cccccc;
+    line-height: 28px;
+    padding: 0 1em;
+    display: inline-block;
+}
+
+.admin-banner a:hover {
+    background: #222222;
+    color: #fafafa;
+    text-decoration: none;
+}

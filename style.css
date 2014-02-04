@@ -76,6 +76,12 @@ img {
     margin-top: -9.5%;
 }
 
+    .video iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
 .null img {
     margin-top: -20%;
 }
@@ -110,7 +116,7 @@ img {
 
 #gui {
     position: fixed;
-    top: 1em;
+    top: 3em;
     right: 1em;
 }
 

@@ -191,21 +191,21 @@ img {
     backface-visibility: hidden;
 }
 
-.item a:hover img {
+.device-desktop .item a:hover img {
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -o-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
-.item .caption {
+.device-desktop .item .caption {
     -webkit-transform: translateY(100%);
     -moz-transform: translateY(100%);
     -o-transform: translateY(100%);
     -ms-transform: translateY(100%);
     transform: translateY(100%);
 }
-.item a:hover .caption {
+.device-desktop .item a:hover .caption {
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
     -o-transform: translateY(0);

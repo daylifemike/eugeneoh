@@ -39,7 +39,7 @@ $posts = eyo_getData();
                 <div class="item col-md-3 col-sm-4 col-xs-12">
 
                     <?php if ( $post->type == 'photo' ) : ?>
-                        <div class="photo thumbnail" id="<?php echo $post->id; ?>">
+                        <div class="photo thumbnail <?php echo $post->aspect; ?>" id="<?php echo $post->id; ?>">
                             <a href="<?php echo $post->wordpress_url; ?>" data-url="<?php echo $post->{'photo-url-1280'}; ?>">
                                 <img class="img-responsive" src="<?php echo $post->{'photo-url-500'}; ?>" alt="" title=""/>
                                 <?php if ( strip_tags( $post->{'photo-caption'} ) ) : ?>

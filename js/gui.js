@@ -1,47 +1,55 @@
 (function($) {
     "use strict";
 
-    var badge_prefix = 'reel';
-    var badge_options = ['ribbon', 'band', 'cover', 'curl'];
-    var hover_prefix = 'caption';
-    var hover_options = ['slide', 'fade', 'partial-fade', 'zoom', 'zoomslide'];
+    $('head').append(document.createElement('style'));
+    var stylesheet = document.styleSheets[document.styleSheets.length-1];
+
+    var photo_prefix = 'photo';
+    var photo_options = ['scale', 'crop'];
     var eyo = {
-        badge : badge_options[0],
-        hover : hover_options[0]
+        photo : photo_options[0],
+        background : '#000000',
+        ribbon : '#d80000'
     };
     var gui = new dat.GUI({ autoPlace: false });
     var $gui = $('<div id="gui"></div>');
     var $body = $('body');
+    var $thumbnails = $('.thumbnail');
 
     $body.append( $gui );
     $gui.append( gui.domElement );
 
 
-    gui.add( eyo, 'badge', badge_options )
+    gui.add( eyo, 'photo', photo_options )
         .onFinishChange(function(value) {
-            updateBody( badge_prefix, value )
+            updateBody( photo_prefix, value )
         });
 
-    gui.add( eyo, 'hover', hover_options )
-        .onFinishChange(function(value) {
-            updateBody( hover_prefix, value )
+    gui.addColor( eyo, 'background' )
+        .onChange(function(value) {
+            $thumbnails.css('background', value);
         });
 
+    gui.addColor( eyo, 'ribbon' )
+        .onChange(function(value) {
+            updatePseudo(value);
+        });
 
     for (var key in eyo) {
         var prefix = '';
 
         switch (key) {
-            case 'badge':
-                prefix = badge_prefix;
+            case 'photo':
+                prefix = photo_prefix;
+                updateBody( prefix, eyo[key] );
                 break;
 
-            case 'hover':
-                prefix = hover_prefix;
+            case 'background':
+                $thumbnails.css('background', eyo[key]);
                 break;
         }
 
-        updateBody( prefix, eyo[key] );
+        // updateBody( prefix, eyo[key] );
     }
 
 
@@ -55,6 +63,21 @@
         }
 
         $body.addClass( key + '-' + value );
+    }
+
+
+    function updatePseudo (value) {
+        // FIXME: escape quotes in text
+        //var $reel = $('.reel:before');
+        var rule = '.reel:before { border-color: ' + value + '; border-right-color:transparent; }';
+        var index = 0;
+
+        if (stylesheet.insertRule) {
+            stylesheet.insertRule(rule, index);
+        }
+        if (stylesheet.deleteRule && index+1 < stylesheet.cssRules.length) {
+            stylesheet.deleteRule(index+1);
+        }
     }
 
 }(jQuery));

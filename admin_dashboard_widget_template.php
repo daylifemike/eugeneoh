@@ -1,3 +1,8 @@
+<div class="refresh pull-right">
+    <a href="#" class="refresh-data btn btn-success" title="refresh data">
+        <i class="fa fa-refresh"></i> Refresh Data
+    </a>
+</div>
 <p>This form is only for overriding the YouTube thumbnail. Adding, removing, and editing posts should happen on Tumblr.</p>
 <ul>
     <li><span class="label label-danger">Red</span> rows indicate a problem</li>

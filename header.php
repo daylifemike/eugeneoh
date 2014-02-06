@@ -32,14 +32,6 @@ $theme_url = get_template_directory_uri();
 
     <body>
 
-        <?php if ( current_user_can( 'edit_posts' ) ) : ?>
-
-            <div class="admin-banner">
-                <a href="<?php echo get_bloginfo('url') . '?flush=1' ?>">Refresh Data</a>
-            </div>
-
-        <?php endif; // end current_user_can() check ?>
-
         <div class="container">
         
             <header class="row">

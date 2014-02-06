@@ -3,6 +3,11 @@
         // for some reason this breaks everything when it's missing
         window.post_id = 0;
 
+        var index = window.location.href.indexOf('flush=1');
+        if ( index > -1 ) {
+            window.location.href = window.location.href.substring(0, index - 1)
+        }
+
         $dashboard = $('#eugene-dashboard');
         $upload = $('#eugene-dashboard-upload');
         $remove = $('#eugene-dashboard-remove');
@@ -17,6 +22,17 @@
             EUGENE_DASHBOARD.current_id = id;
             EUGENE_DASHBOARD.current_modal = target;
             $(target).modal();
+        });
+
+        $dashboard.parents('#eugene_dashboard_widget').on('click', '.refresh-data', function (event) {
+            event.preventDefault();
+            var url = window.location.href;
+            if (url.indexOf('?') > -1){
+               url += '&flush=1'
+            }else{
+               url += '?flush=1'
+            }
+            window.location.href = url;
         });
 
         $dashboard.on('click', '.btn-info', function (event) {

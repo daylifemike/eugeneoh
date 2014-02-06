@@ -112,7 +112,9 @@ function eyo_updateData() {
         $db_data = $tumblr_data;
 
         foreach ( $tumblr_data as $post ) {
-            if ( $post->type == 'video' ) {
+            if ( $post->type == 'photo' ) {
+                $post->aspect = ($post->width > $post->height ? 'landscape' : 'portrait');
+            } elseif ( $post->type == 'video' ) {
                 $pattern_full = "[?|&]v=([a-zA-Z0-9_-]+)";
                 $pattern_short = "youtu.be\/([a-zA-Z0-9_-]+)";
                 preg_match( "#$pattern_full#i", $post->{'video-source'}, $matches);

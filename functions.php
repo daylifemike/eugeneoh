@@ -41,7 +41,6 @@ function eyo_pageMetaTags() {
             $image = $post->youtube->thumbnail;
         }
         $url = $post->wordpress_url;
-
     }
 
     // // Facebook & Google+

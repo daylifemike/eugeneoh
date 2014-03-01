@@ -30,3 +30,10 @@
 }
 
 #wpbody-content #dashboard-widgets #postbox-container-1 { width:100%; }
+
+@media only screen and (min-width:1500px) and (max-width:1800px) {
+    #wpbody-content #dashboard-widgets .postbox-container { width:100% }
+    #wpbody-content #dashboard-widgets #postbox-container-1 { width:100%; }
+    #wpbody-content #dashboard-widgets #postbox-container-3,
+    #wpbody-content #dashboard-widgets #postbox-container-4 { float:none }
+}

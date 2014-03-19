@@ -113,27 +113,6 @@ img {
     text-align: right;
 }
 
-.photo-scale .item .landscape img {
-    width: 100%;
-    height: auto;
-    margin-top: 0;
-}
-
-.photo-scale .item .portrait img {
-    height: 100%;
-    width: auto;
-    margin-top: 0;
-}
-
-
-#gui {
-    position: fixed;
-    top: 3em;
-    right: 1em;
-}
-
-#gui * { box-sizing: content-box; }
-
 /* ================= */
 .reel .reel-badge { display:none; }
 .reel:before {

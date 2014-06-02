@@ -224,7 +224,7 @@ function eyo_parseYouTubeResponse($video) {
         'duration' => eyo_prettyDuration($video->duration),
         'thumbnail' => $video->thumbnail->hqDefault,
         'youtube_url' => '//www.youtube.com/watch?v=' . $video->id . '',
-        'embed_url' => $video->content->{'5'} . '&enablejsapi=0&iv_load_policy=3&showinfo=0'
+        'embed_url' => preg_replace('/\/v\//', '/embed/', $video->content->{'5'}) . '&enablejsapi=0&iv_load_policy=3&showinfo=0'
         // ,'wordpress_url' => eyo_makeWpUrl( $video->id, $video->title )
     );
 

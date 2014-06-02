@@ -110,7 +110,7 @@
                 var json = JSON.parse(resp);
                 var $current = $('#' + EUGENE_DASHBOARD.current_id).find('.custom-image');
                 
-                $current.empty()
+                $current.empty();
                 
                 if (json.data) {
                     $current.append('<img src="'+ json.data +'">');

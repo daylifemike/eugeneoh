@@ -1,10 +1,9 @@
 // YouTube PlayerAPI
 ;(function() {
-    var e = document.createElement('script');
-    var s = document.getElementsByTagName('script')[0];
-    e.async = true;
-    e.src = 'https://www.youtube.com/player_api';
-    s.parentNode.insertBefore(e, s);
+    var tag = document.createElement('script');
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    tag.src = "https://www.youtube.com/iframe_api";
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 }());
 
 // Google Analytics

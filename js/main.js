@@ -119,13 +119,22 @@
             // begin in earnest
             var self = this;
             var target = $('<div id="' + this.video_container_id + '"></div>')[0];
-            var player;
+            var player = null;
+            var video_url = $node.attr('data-url');
+            var matches = video_url.match("/(v|embed)/(([a-zA-Z0-9_-]+){11})");
+
+            if (matches[2]) {
+                var video_id = matches[2];
+            } else {
+                alert("An error occurred.  Please try again later.")
+                return;
+            }
 
             $node.parents('.video').append(target);
             
             setTimeout(function() {
                 player = new YT.Player(self.video_container_id, {
-                    videoId : $node.parents('.item').prop('id'),
+                    videoId : video_id,
                     width : '100%',
                     height : '100%',
                     playerVars : {

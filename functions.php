@@ -5,6 +5,7 @@
 
 $EYO_TRANSIENTS_ID = 'eyo_transients';
 $EYO_OPTIONS_ID = 'eyo_options';
+$EYO_YOUTUBE_API_KEY = 'AIzaSyDK6C7xHaAxfdvSqaxZ0I7kRRGBvEIYIfk';
 
 // header.php
 function eyo_pageMetaTags() {
@@ -198,14 +199,20 @@ function eyo_getTumblrData() {
 
 
 function eyo_getYouTubeData($video_id) {
-    $url = 'http://gdata.youtube.com/feeds/api/videos/' . $video_id . '?v=2&alt=jsonc';
+    global $EYO_YOUTUBE_API_KEY;
+
+    $url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&id=' . $video_id . '&key='. $EYO_YOUTUBE_API_KEY;
+
     $response = wp_remote_get( $url );
     $response_code = wp_remote_retrieve_response_code( $response );
+
     if ( $response_code != 200 ) {
         return false;
     }
+
     $response = json_decode( $response['body'] );
-    $response = $response->data;
+    $response = $response->items[0];
+
     return eyo_parseYouTubeResponse($response);
 }
 
@@ -219,12 +226,12 @@ function eyo_makeWpUrl($id, $title) {
 function eyo_parseYouTubeResponse($video) {
     $response = (object) array(
         'id' => $video->id,
-        'title' => $video->title,
-        'description' => $video->description,
-        'duration' => eyo_prettyDuration($video->duration),
-        'thumbnail' => $video->thumbnail->hqDefault,
+        'title' => $video->snippet->localized->title,
+        'description' => $video->snippet->localized->description,
+        'duration' => eyo_prettyDuration($video->contentDetails->duration),
+        'thumbnail' => $video->snippet->thumbnails->high->url,
         'youtube_url' => '//www.youtube.com/watch?v=' . $video->id . '',
-        'embed_url' => preg_replace('/\/v\//', '/embed/', $video->content->{'5'}) . '&enablejsapi=0&iv_load_policy=3&showinfo=0'
+        'embed_url' => 'http://www.youtube.com/embed/' . $video->id . '?version=3&f=videos&enablejsapi=0&iv_load_policy=3&showinfo=0'
         // ,'wordpress_url' => eyo_makeWpUrl( $video->id, $video->title )
     );
 
@@ -249,32 +256,8 @@ function eyo_refreshData() {
 
 
 function eyo_prettyDuration($seconds) {
-    $h = $seconds / 3600 % 24;
-    $m = $seconds / 60 % 60; 
-    $s = $seconds % 60;
-
-    $output = array();
-
-    // only print hours when present
-    if ($h >= 1) $output[] = "{$h}";
-
-    // always print minutes (even 0)
-    // only add the leading 0 when there are hours
-    if ( $h >= 1 && strlen(strval("{$m}")) < 2 ) {
-        $output[] = "0{$m}";
-    } else {
-        $output[] = "{$m}";
-    }
-
-    // always print seconds
-    // always be 2 digits long (leading 0)
-    if ( strlen(strval("{$s}")) < 2 ) {
-        $output[] = "0{$s}";
-    } else {
-        $output[] = "{$s}";
-    }
-
-    return implode(':', $output);
+    $date = new DateInterval($seconds);
+    return $date->format('%i:%S');
 }
 
 function eyo_getPermalinkVideo() {

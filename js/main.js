@@ -205,7 +205,7 @@
         },
 
         _parseURLForHistory : function (url) {
-            return url.match(/\/post\/([a-zA-Z0-9_-]{11})\/([a-zA-Z0-9_-]*)/);
+            return url.match(/\/post\/([\w_-]*)\/([\w_-]*)/);
         },
 
         _pushToHistory : function (url) {

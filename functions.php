@@ -123,8 +123,12 @@ function eyo_updateData() {
                     preg_match( "#$pattern_short#i", $post->{'video-source'}, $matches);
                 }
 
-                $yt_data = eyo_getYouTubeData( $matches[1] );
-                $post->youtube = $yt_data;
+                if ( !empty($matches[1]) ) {
+                    $yt_data = eyo_getYouTubeData( $matches[1] );
+                    $post->youtube = $yt_data;
+                } else {
+                    // it's a video and it's not from youtube --- what did you do, Eugene?
+                }
             }
 
             $post->is_reel = false;
